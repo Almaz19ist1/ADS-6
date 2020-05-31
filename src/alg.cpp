@@ -5,28 +5,35 @@
 #include  <cstdlib>
 
 BST<std::string> makeTree(char* filename)
-{
-  ofstream f;
-  f.open(filename);
+{	
   std::string str;
-  BST<std::string> bst;
-  std::string str1 = '';
-  
-  while(getline(f, str))
+	std::ifstream f(filename);
+	BST<std::string> *bst = new BST<std::string>;
+	char str1 = "";
+	while (!f.eof())
   {
-    for(int i = 0; i <strlen(str); i++)
+ 		while ( str1 < 65 && (!f.eof()) ) 
+		{
+			f.get(str1);
+		}
+    while (  str1 >= 65  && (!f.eof()))
     {
-      if(("%d", str[i + 1]) != 32)
-      {
-        str1 += str[i]; 
-      }
-      else
-      {
-        bst.add(str1); 
-      }
-    }
-    str1 = '';
+	   if (str1 >= 65 && str1 <= 90)
+	  {
+		  str += str1;	
+	  }
+	  if (str1 >= 97 && str1 <= 122)
+	  {
+		  str += str1;
+	  }
+	  f.get(str);	
   }
-  
-  f.close(filename);
+for (int i = 0; i < str.length(); i++)
+{
+	if (str[i] >= 65 && str[i] <= 90)
+	str[i] += 32;
+}
+(*bst).add(str);
+  str = "";
+	return *bst;
 }
