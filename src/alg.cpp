@@ -6,7 +6,7 @@
 
 BST<std::string> makeTree(char* filename)
 {
-  ifstream f;
+  ofstream f;
   f.open(filename);
   std::string str;
   BST<std::string> bst;
@@ -16,7 +16,7 @@ BST<std::string> makeTree(char* filename)
   {
     for(int i = 0; i <strlen(str); i++)
     {
-      if(str[i + 1] != 32)
+      if(("%d", str[i + 1]) != 32)
       {
         str1 += str[i]; 
       }
