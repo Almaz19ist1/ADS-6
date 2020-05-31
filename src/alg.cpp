@@ -9,7 +9,7 @@ BST<std::string> makeTree(char* filename)
   std::string str;
 	std::ifstream f(filename);
 	BST<std::string> *bst = new BST<std::string>;
-	char str1 = "";
+	char str1 = '';
 	while (!f.eof())
   {
  	while ( str1 < 65 && (!f.eof()) ) 
