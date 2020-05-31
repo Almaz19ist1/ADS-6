@@ -12,11 +12,11 @@ BST<std::string> makeTree(char* filename)
 	char str1 = "";
 	while (!f.eof())
   {
- 		while ( str1 < 65 && (!f.eof()) ) 
+ 	while ( str1 < 65 && (!f.eof()) ) 
 		{
 			f.get(str1);
 		}
-    while (  str1 >= 65  && (!f.eof()))
+    	while (  str1 >= 65  && (!f.eof()))
     {
 	   if (str1 >= 65 && str1 <= 90)
 	  {
@@ -28,12 +28,13 @@ BST<std::string> makeTree(char* filename)
 	  }
 	  f.get(str);	
   }
-for (int i = 0; i < str.length(); i++)
-{
+	for (int i = 0; i < str.length(); i++)
+	{
 	if (str[i] >= 65 && str[i] <= 90)
 	str[i] += 32;
-}
+	}
 (*bst).add(str);
-  str = "";
-	return *bst;
+str = "";
+close(f);
+return *bst;
 }
